@@ -1,0 +1,26 @@
+ManifestFileVersion: 0
+CRC: 3248894311
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: ab66b4aff552fd46329e934eb666f1e1
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: d9f87fb84bc663c7f4fdf28f9f7b1a20
+HashAppended: 0
+ClassTypes:
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 12001, guid: 0000000000000000e000000000000000, type: 0}
+- Class: 115
+  Script: {instanceID: 0}
+- Class: 128
+  Script: {instanceID: 0}
+Assets:
+- Assets/Resources/ParkitectGUISkin.guiskin
+Dependencies: []
