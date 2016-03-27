@@ -240,7 +240,7 @@ public class TimeLapse : MonoBehaviour
             string text = TimeLapse.ScreenShotName(this.resWidth, this.resHeight, this.Path, CurScreenShotCount, Name);
             File.WriteAllBytes(text, bytes);
             Debug.Log(string.Format("Took screenshot to: {0}", text));
-
+            Destroy(texture2D);
             QualitySettings.lodBias = LoadBias;
             this.takeHiResShot = false;
         }
