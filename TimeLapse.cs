@@ -223,8 +223,10 @@ public class TimeLapse : MonoBehaviour
 
                     this.SetCamOnPoint(this.CamPoints[0]);
             }
-            //camera.nearClipPlane = 0f;
-            //camera.farClipPlane = 1600f;
+            float StartNear = camera.nearClipPlane;
+            float StartFar = camera.farClipPlane;
+            camera.nearClipPlane = 0f;
+            camera.farClipPlane = 1600f;
             RenderTexture renderTexture = new RenderTexture(this.resWidth, this.resHeight, 24);
             this.camera.targetTexture = renderTexture;
             Texture2D texture2D = new Texture2D(this.resWidth, this.resHeight, TextureFormat.RGB24, false);
@@ -242,6 +244,8 @@ public class TimeLapse : MonoBehaviour
             Debug.Log(string.Format("Took screenshot to: {0}", text));
             Destroy(texture2D);
             QualitySettings.lodBias = LoadBias;
+            camera.nearClipPlane = StartNear;
+            camera.farClipPlane = StartFar;
             this.takeHiResShot = false;
         }
     }
