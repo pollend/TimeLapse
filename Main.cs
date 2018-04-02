@@ -1,15 +1,16 @@
-﻿using UnityEngine;
+﻿using System.Linq;
+using UnityEngine;
 
-namespace HelloMod
+namespace TimeLapse
 {
     public class Main : IMod
     {
         public string Identifier { get; set; }
         GameObject _go;
-        TimeLapse DC;
+        TimeLapseManager DC;
         public void onEnabled()
         {
-            DC = Camera.main.gameObject.AddComponent<TimeLapse>();
+            DC = Camera.main.gameObject.AddComponent<TimeLapseManager>();
             DC.Path = Path;
             Debug.Log("TimeLapse Mod Enabled");
         }
@@ -17,18 +18,15 @@ namespace HelloMod
         public void onDisabled()
         {
             DC.HidePreview();
-            UnityEngine.Object.DestroyImmediate(DC);
+            Object.DestroyImmediate(DC);
         }
 
-        public string Name 
+        public string Name => "Timelapse";
+        public string Description => "Create a Timelapse while building your park";
+        string IMod.Identifier => "Timelapse";
+        public string Path
         {
-            get { return "TimeLapse"; }
-        }
-
-        public string Path { get; set; }
-        public string Description
-        {
-            get { return "Create a Timelapse while building your park"; }
+            get { return ModManager.Instance.getModEntries().First(x => x.mod == this).path; }
         }
     }
 }
